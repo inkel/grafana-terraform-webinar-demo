@@ -1,0 +1,35 @@
+* Grafana Terraform provider demo
+This repository contains files for the demo of [[https://registry.terraform.io/providers/grafana/grafana/latest][Terraform provider for Grafana]].
+
+** How to reproduce
+Make sure you have [[https://www.terraform.io/][Terraform]] installed.
+
+Edit the variables file with your changes:
+
+#+begin_src shell :eval no
+  cp local.tfvars.example local.tfvars
+  $EDITOR local.tfvars
+#+end_src
+
+Initialize your Terraform environment and install the provider:
+
+#+begin_src shell :eval no
+  terraform init
+#+end_src
+
+#+RESULTS:
+
+Apply the changes, indicating your variables file:
+
+#+begin_src shell :eval no
+  terraform apply -var-file=local.tfvars
+#+end_src
+
+Click on the reported URL and see your newly created dashboard!
+
+** Cleaning up
+If you want to remove all the resources created by this demo, you need to run the following command:
+
+#+begin_src shell
+  terraform destroy -var-file=local.tfvars
+#+end_src
